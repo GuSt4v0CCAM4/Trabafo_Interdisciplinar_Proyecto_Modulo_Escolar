@@ -89,7 +89,7 @@ include ("../include/connect.php");
 					$subject = $_POST["subject"];
 					$section = $_POST["section"];
 					
-			// RETRIVING RESULT FOR I-I	
+			// RECUPERANDO EL RESULTADO DE I-I	
 			if($sem == "I-I"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a1 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -105,25 +105,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a1` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a1` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						echo "
 							<tr>
@@ -139,7 +139,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF I-II 
+			//RECUPERANDO EL RESULTADO DE I-II 
 			else if($sem == "I-II"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a2 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -155,25 +155,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a2` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a2` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -190,7 +190,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF II-I 
+			//RECUPERANDO EL RESULTADO DE II-I 
 			else if($sem == "II-I"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a3 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -206,25 +206,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a3` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a3` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -241,7 +241,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF II-II 
+			//RECUPERANDO EL RESULTADO DE II-II 
 			else if($sem == "II-II"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a4 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -257,25 +257,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a4` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a4` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes 
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -292,7 +292,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF III-I 
+			//RECUPERANDO EL RESULTADO DE III-I 
 			else if($sem == "III-I"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a5 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -308,25 +308,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a5` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a5` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -343,7 +343,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF III-II 
+			//RECUPERANDO EL RESULTADO DE III-II 
 			else if($sem == "III-II"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a6 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -359,25 +359,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a6` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a6` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -394,7 +394,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF IV-I 
+			//RECUPERANDO EL RESULTADO DE IV-I 
 			else if($sem == "IV-I"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a7 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -410,25 +410,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a7` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a7` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
@@ -445,7 +445,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF IV-II 
+			//RECUPERANDO EL RESULTADO DE IV-II 
 			else if($sem == "IV-II"){
 				$sql1 = mysqli_query($connect, "SELECT distinct(id),sec FROM a8 WHERE day BETWEEN ('$dates' AND '$subject') and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -461,25 +461,25 @@ include ("../include/connect.php");
 						$sub = $row["fac"];
 						//$date = $row["day"];
 						//$atten = $row["atten"];
-						//counting the total number of present days
+						//contando el número total de días presentes
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a8` WHERE `id`='$id' and `fac` = '$sub' and atten = '1'");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//recuperando el número de días presentes 
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//contando el número total de días ausentes
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a8` WHERE `id`='$id' and `fac` = '$sub' and atten = '0'");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//recuperando el número de días ausentes
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a significa el número de días presentes
 						$a = $total1;
-						// b means number of absent days
+						// b significa el número de días ausentes
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//CALCULANDO el número total de días
 						$total = $a+$b;
-						//calculating the attendance percentage
+						//calculando el porcentaje de asistencia
 						$percent = round((($a/$total)*100),2);
 						
 						echo "
