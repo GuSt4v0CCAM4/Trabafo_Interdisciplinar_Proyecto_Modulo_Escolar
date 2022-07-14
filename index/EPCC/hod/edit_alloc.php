@@ -24,7 +24,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 	$subs = $_POST["subject"];
 	$sec = $_POST["sec"];
 	$sem = $_POST["sem"];
-	//CHECKING FOR THE NULL VALUES 
+	//Revisando valores null
 	if( ($name == "") || ($subs=="") || ($sec=="") || ($sem=="") ){
 		$msg = "<div align='center'><font color='red'>Select all options properly</font></div>";
 	}else{
@@ -84,11 +84,11 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 						<select name="fname" class="form-control" />
 							<option value=""> Nombre de la facultad</option>
 							<?php 
-							//retriving name of faculty to display in select option
+							//Recuperando el nombre de la facultad para mostrarlo como opción
 								$sql=mysqli_query($connect, "select distinct(fname) as fname from user");
 								while($row = mysqli_fetch_array($sql)){
 									$faculty = $row["fname"];
-									// displaying as option 
+									// Mostrandolo como opcion
 									echo "<option value='$faculty'>$faculty</option>";
 								}
 							?>
@@ -99,7 +99,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 							<option value="">Cambio Asignado Sujeto a</option>
 					<?php
 						
-							//retriving the name of the subject from the database to display in the  select option
+							//Recuperando el nombre del curso para mostrarlo como opción
 						$ans = mysqli_query($connect, "SELECT distinct(`name`) FROM `faculty`  ORDER BY `name`");
 						while($row = mysqli_fetch_array($ans)){
 							$fname = $row["name"];
@@ -112,7 +112,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 					
 				</tr>
 				<tr>
-				<!-- for selecting semester -->
+				<!-- Elegir semestre -->
 					<td class="active" colspan="2">							
 			<select name="sem" class="form-control">
 			<option value="">Semestre</option>
@@ -126,7 +126,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 			<option value="IV-II">IV-II</option>
 					
 		 </select></td>
-		 <!-- for selecting seciton -->
+		 <!-- Para elegir sección -->
 		 					<td class="active" colspan="2">							
 			<select name="sec" class="form-control">
 			<option value="">Seccion</option>
