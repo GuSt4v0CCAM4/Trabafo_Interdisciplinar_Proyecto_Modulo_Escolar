@@ -15,24 +15,24 @@ include ("../include/connect.php");
 $msg ="";
 $ck="";
 $id = $_SESSION["id"];
-//checking whether new id is passed or not
+//Revisando si el nuevo ID es válido o no
 if(isset($_POST["old_Id"]) && isset($_POST["new_Id"])){
 	$newID = $_POST["new_Id"];
 	$old = $_POST["old_Id"];
-	//retriving data to check old password
+	//Recuperando los datos para revisar la vieja contraseña
 	$sql1 = mysqli_query($connect, "SELECT * FROM user WHERE id='$id' and password = '$old' ");
 	while($row= mysqli_fetch_array($sql1)){
 		$ck = $row["password"];
 	}
 
 	if($ck == $old){
-		//means success so updating
+		//Mensaje de éxito
 		$sql = mysqli_query($connect,"U PDATE user SET password = '$newID' WHERE id='$id' and password = '$old' ");
 		$msg = "<div align='center'><font color='green'>Successfully Changed</font></div>";
 		
 	}
 	else{
-		//means some error occured
+		//Mensaje de error
 		$msg = "<div align='center'><font color='red'>Sorry Wrong Old Password, try again</font></div>";
 	}
 
