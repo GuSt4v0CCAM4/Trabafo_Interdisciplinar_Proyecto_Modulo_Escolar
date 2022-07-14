@@ -332,10 +332,10 @@ include ("../include/connect.php");
 								$totalall1 = $rows["LOSS"];
 							}
 						
-							//counting toal days for particular registered id
+	
 							 $totalall = $totalall1+$totalall2;
 							
-							//counting the total number of present days subject wise
+				
 	$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a4` WHERE (`id`='$ids' and `fac` = '$sub' and atten = '1' and day between '$from' and '$final') ");
 							while($rows = mysqli_fetch_array($sql2)){
 								//retriving number of present days 
@@ -357,8 +357,7 @@ include ("../include/connect.php");
 					echo "<form><input type='button' class='hidden-print btn btn-success' onClick='javascript:print()' value='Print'/></form>";
 	
 			    }
-				// end of IF AND STARTING OF III-I
-			//indicates everything is posted properly so begin the task
+	
 				else if($sem =="III-I"){
 					$sql = mysqli_query($connect, "SELECT name FROM faculty WHERE yr='III-I' ");
 					echo "<table border='1' class='table table-hover table-bordered' width='100%' align='center'>
@@ -384,25 +383,23 @@ include ("../include/connect.php");
 						
 							$sub = $row["name"];
 							
-							//counting total number of days based on registered id i.e total of all subjects
+					
 					$sql31 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a5` WHERE  atten='0' and `id`='$ids' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql31)){
 								//retriving number of absent days 
 									$totalall2 = $rows["LOSS"];
 							}
 						
-								
-							//counting total number of days based on registered id i.e total of all subjects
 				$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a5` WHERE `id`='$ids' and atten = '1' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql3)){
 								//retriving number of absent days 
 								$totalall1 = $rows["LOSS"];
 							}
 						
-							//counting toal days for particular registered id
+						
 							 $totalall = $totalall1+$totalall2;
 							
-							//counting the total number of present days subject wise
+						
 	$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a5` WHERE (`id`='$ids' and `fac` = '$sub' and atten = '1' and day between '$from' and '$final') ");
 							while($rows = mysqli_fetch_array($sql2)){
 								//retriving number of present days 
@@ -424,8 +421,7 @@ include ("../include/connect.php");
 					echo "<form><input type='button' class='hidden-print btn btn-success' onClick='javascript:print()' value='Print'/></form>";
 	
 			    }
-				// end of IF STARTING III-II
-			//indicates everything is posted properly so begin the task
+		
 				else if($sem =="III-II"){
 					$sql = mysqli_query($connect, "SELECT name FROM faculty WHERE yr='III-II' ");
 					echo "<table border='1' class='table table-hover table-bordered' width='100%' align='center'>
@@ -433,7 +429,7 @@ include ("../include/connect.php");
 					<th class='danger'><b>Registered_ID</th><th class='danger'>Section</font></th><b>";
 					while($row = mysqli_fetch_array($sql)){
 						$sub=$row["name"];
-						//subject showing
+					
 						echo "<th class='danger'><b>$sub&nbsp;<b></th>";
 				    }
 					//echo "$from : $final";
@@ -450,29 +446,24 @@ include ("../include/connect.php");
 							while($row = mysqli_fetch_array($sql11) ){
 						
 							$sub = $row["name"];
-							
-							//counting total number of days based on registered id i.e total of all subjects
+
 					$sql31 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a6` WHERE  atten='0' and `id`='$ids' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql31)){
-								//retriving number of absent days 
+							
 									$totalall2 = $rows["LOSS"];
 							}
 						
-								
-							//counting total number of days based on registered id i.e total of all subjects
 				$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a6` WHERE `id`='$ids' and atten = '1' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql3)){
-								//retriving number of absent days 
+							
 								$totalall1 = $rows["LOSS"];
 							}
 						
-							//counting toal days for particular registered id
 							 $totalall = $totalall1+$totalall2;
-							
-							//counting the total number of present days subject wise
+					
 	$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a6` WHERE (`id`='$ids' and `fac` = '$sub' and atten = '1' and day between '$from' and '$final') ");
 							while($rows = mysqli_fetch_array($sql2)){
-								//retriving number of present days 
+							
 								 $total1 = $rows["ATTEN"];
 								echo "<td class='active'>$total1</td>";
 							}
@@ -491,8 +482,7 @@ include ("../include/connect.php");
 					echo "<form><input type='button' class='hidden-print btn btn-success' onClick='javascript:print()' value='Print'/></form>";
 	
 			    }
-				// end of IF STARTING 4-1
-			//indicates everything is posted properly so begin the task
+			
 				else if($sem =="IV-I"){
 					$sql = mysqli_query($connect, "SELECT name FROM faculty WHERE yr='IV-I' ");
 					echo "<table border='1' class='table table-hover table-bordered' width='100%' align='center'>
@@ -500,7 +490,7 @@ include ("../include/connect.php");
 					<th class='danger'><b>Registered_ID</th><th class='danger'>Seccion</font></th><b>";
 					while($row = mysqli_fetch_array($sql)){
 						$sub=$row["name"];
-						//subject showing
+						
 						echo "<th class='danger'><b>$sub&nbsp;<b></th>";
 				    }
 					//echo "$from : $final";
@@ -511,14 +501,13 @@ include ("../include/connect.php");
 					while($row = mysqli_fetch_array($sql1)){
 							$ids=$row["id"];
 							$sec = $row["sec"];
-							//displaying ids and section 
+							
 							echo "<td class='active'>$ids</td><td class='active'>$sec</td>";
 							$sql11 = mysqli_query($connect, "SELECT  name  FROM faculty WHERE yr= 'IV-I' ");
 							while($row = mysqli_fetch_array($sql11) ){
 						
 							$sub = $row["name"];
 							
-							//counting total number of days based on registered id i.e total of all subjects
 					$sql31 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a7` WHERE  atten='0' and `id`='$ids' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql31)){
 								//retriving number of absent days 
@@ -526,7 +515,7 @@ include ("../include/connect.php");
 							}
 						
 								
-							//counting total number of days based on registered id i.e total of all subjects
+						
 				$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a7` WHERE `id`='$ids' and atten = '1' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql3)){
 								//retriving number of absent days 
@@ -585,15 +574,14 @@ include ("../include/connect.php");
 						
 							$sub = $row["name"];
 							
-							//counting total number of days based on registered id i.e total of all subjects
+						
 					$sql31 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a8` WHERE  atten='0' and `id`='$ids' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql31)){
 								//recuperando el número de días en los que se estuvo ausente 
 									$totalall2 = $rows["LOSS"];
 							}
 						
-								
-							//counting total number of days based on registered id i.e total of all subjects
+							
 				$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a8` WHERE `id`='$ids' and atten = '1' and day between '$from' and '$final' ");
 							if($rows = mysqli_fetch_array($sql3)){
 								//recuperando el número de días en los que se estuvo ausente
