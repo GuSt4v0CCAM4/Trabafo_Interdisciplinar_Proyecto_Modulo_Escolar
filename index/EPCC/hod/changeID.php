@@ -17,24 +17,24 @@ include ("../include/connect.php");
 $msg ="";
 $ck="";
 $id = $_SESSION["id"];
-//checking whether new id is passed or not
+//Validando id
 if(isset($_POST["old_Id"]) && isset($_POST["new_Id"])){
 	$newID = $_POST["new_Id"];
 	$old = $_POST["old_Id"];
-	//retriving data to check old id
+	//Recuperando datos para validar id
 	$sql1 = mysqli_query($connect,"SELECT * FROM user WHERE  userId = '$old' ");
 	while($row= mysqli_fetch_array($sql1)){
 		$ck = $row["userId"];
 	}
 
 	if($ck == $old){
-		//means success so updating
+		//Mensaje éxito
 		$sql = mysqli_query($connect, "UPDATE user SET userId = '$newID' WHERE userId = '$old' ");
 		$msg = "<div align='center'><font color='green'>Cambiado exitosamente</font></div>";
 		
 	}
 	else{
-		//means some error occured
+		//Mensaje error
 		$msg = "<div align='center'><font color='red'>Lo sentimos, ID incorrecto, intenta de nuevo</font></div>";
 	}
 
