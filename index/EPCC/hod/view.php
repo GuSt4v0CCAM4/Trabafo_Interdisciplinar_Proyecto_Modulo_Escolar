@@ -60,7 +60,7 @@ include ("../include/connect.php");
 							<option>Tema</option>
 							<?php
 							$j=1;
-							//retriving the name of the subject from the database to display in the  select option
+							//recuperar el nombre del estudiante de la base de datos para mostrar en la opción de selección
 						$ans = mysqli_query($connect, "SELECT COUNT(*) AS `Rows`, `name` FROM `faculty` GROUP BY `name` ORDER BY `name`");
 				    $count1= mysqli_num_rows($ans);
 				while($j<=$count1){
@@ -102,7 +102,7 @@ include ("../include/connect.php");
 					$subject = $_POST["subject"];
 					$section = $_POST["section"];
 					
-			// RETRIVING RESULT FOR I-I	
+				// RESULTADO DE RECUPERACIÓN PARA I-I	
 			if($sem == "I-I"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a1 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -132,7 +132,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>Selection Parameter do not Match</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF I-II 
+			//RECUPERANDO LA ASISTENCIA DE I-II 
 			else if($sem == "I-II"){
 				$sql1 =mysqli_query($connect, "SELECT * FROM a2 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -162,7 +162,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF II-I 
+			//RECUPERANDO LA ASISTENCIA DE II-I 
 			else if($sem == "II-I"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a3 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -192,7 +192,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF II-II 
+			//RECUPERANDO LA ASISTENCIA DE II-II 
 			else if($sem == "II-II"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a4 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -222,7 +222,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF III-I 
+			//RECUPERANDO LA ASISTENCIA DE III-I 
 			else if($sem == "III-I"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a5 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -252,7 +252,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF III-II 
+			//RECUPERANDO LA ASISTENCIA DE III-II 
 			else if($sem == "III-II"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a6 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -282,7 +282,7 @@ include ("../include/connect.php");
 					echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF IV-I 
+			//RECUPERANDO LA ASISTENCIA DE IV-I 
 			else if($sem == "IV-I"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a7 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
@@ -312,7 +312,7 @@ include ("../include/connect.php");
 				echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF IV-II 
+			//RECUPERANDO LA ASISTENCIA DE IV-II 
 			else if($sem == "IV-II"){
 				$sql1 = mysqli_query($connect, "SELECT * FROM a8 WHERE day = '$date' and fac = '$subject' and sec = '$section' ");
 				$count = mysqli_num_rows($sql1);
