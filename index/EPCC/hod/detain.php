@@ -18,13 +18,12 @@ $msg ="";
 if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
 	$id = $_POST["detainId"];
 	$year = $_POST["year"];
-	
-	  //checking whether student is present in the database or not according to year wise
+	  //Viendo si el estudiante está en la base de datos o no de acuerdo al año
   if($year == "I-I"){
-	//CHECKING IN FIRST YEAR FIRST SEMISTER DATABASE FOR THE STUDENTS
+	//Revisando en el primer año - Primer semestre
 	$sql = mysqli_query($connect, "SELECT * FROM s1 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+		//Indica que el estudiante está presente
 		$det = mysqli_query($connect, "UPDATE s1 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 				$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -33,12 +32,10 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
 		$msg = "<font color=\"red\">Sorry Student not Present in List</font>";
 	}
   }
-// NOW CHECKING 1-2 
   else if($year == "I-II"){
-	//CHECKING IN FIRST YEAR SECOND SEMISTER DATABASE FOR THE STUDENTS
 	$sql = mysqli_query($connect, "SELECT * FROM s2 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+
 		$det = mysqli_query($connect, "UPDATE s2 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -63,10 +60,9 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
   }
  // NOW CHECKING 2-2 
   else if($year == "II-II"){
-	//CHECKING IN SECOND YEAR SECOND SEMISTER DATABASE FOR THE STUDENTS
 	$sql = mysqli_query($connect, "SELECT * FROM s4 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+
 		$det = mysqli_query($connect, "UPDATE s4 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -77,10 +73,9 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
   }
   // NOW CHECKING 3-1 
   else if($year == "III-I"){
-	//CHECKING IN THIRD YEAR FIRST SEMISTER DATABASE FOR THE STUDENTS
 	$sql = mysqli_query($connect, "SELECT * FROM s5 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+	
 		$det = mysqli_query($connect, "UPDATE s5 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -89,12 +84,12 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
 		$msg = "<font color=\"red\">Sorry Student not Present in List</font>";
 	}
   }
-   // NOW CHECKING 3-2 
+  
   else if($year == "III-II"){
-	//CHECKING IN THIRD YEAR SECOND SEMISTER DATABASE FOR THE STUDENTS
+
 	$sql = mysqli_query($connect, "SELECT * FROM s6 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+
 		$det = mysqli_query($connect, "UPDATE s6 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -103,12 +98,12 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
 		$msg = "<font color=\"red\">Sorry Student not Present in List</font>";
 	}
   }
-    // NOW CHECKING 4-1 
+   
   else if($year == "IV-I"){
-	//CHECKING IN THIRD YEAR SECOND SEMISTER DATABASE FOR THE STUDENTS
+	
 	$sql = mysqli_query($connect, "SELECT * FROM s7 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+		
 		$det = mysqli_query($connect, "UPDATE s7 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
@@ -117,12 +112,12 @@ if((isset($_POST["detainId"])) && (isset($_POST["year"]))){
 		$msg = "<font color=\"red\">Sorry Student not Present in List</font>";
 	}
   }
-     // NOW CHECKING 4-2 
+     
   else if($year == "IV-II"){
-	//CHECKING IN THIRD YEAR SECOND SEMISTER DATABASE FOR THE STUDENTS
+	
 	$sql = mysqli_query($connect, "SELECT * FROM s8 WHERE id = '$id'");
 	if($sql){
-		//INDICATES THAT STUDENT IS PRESENT SO DETAINING THE STUDENT
+	
 		$det = mysqli_query($connect, "UPDATE s8 SET detained = '1' WHERE id = '$id' ");
 		if($det){
 			$msg = "<font color=\"green\">Successfully Detained</font>";
