@@ -39,7 +39,7 @@ include ("../include/connect.php");
 				<?php
 					$yrs = $_GET["yr"];
 				//	echo  $yrs;
-				//view the promoted list
+				//ver la lista promocionada
 					if($yrs == "I-II"){
 						$sts = mysqli_query($connect, "SELECT * FROM s2");
 						while($row=mysqli_fetch_array($sts)){
