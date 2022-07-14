@@ -18,7 +18,7 @@ $msg ="";
 if((isset($_POST["from"])) && (isset($_POST["to"]))){
 	$from = $_POST["from"];
 	$to = $_POST["to"];
-	//Actualizar form 1-1 1-2
+	//Actualizar de 1-1 1-2
 	if($from == "i-i" && $to =="i-ii"){
 					$sql = mysqli_query($connect, "SELECT * FROM s1 where detained != '1' ");
 				if($sql){
