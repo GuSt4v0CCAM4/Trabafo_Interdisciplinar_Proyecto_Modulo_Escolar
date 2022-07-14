@@ -196,6 +196,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
+	// Para la asistencia del primer semestre del segundo año.
 	else if($a == "II-I"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s3 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
