@@ -8,6 +8,7 @@ $estudiantes = Estudiante::obtener();
     <div class="col-12">
         <h1>Listado de estudiantes</h1>
         <a href="formulario_registro_estudiante.php" class="btn btn-info my-2">Nuevo</a>
+        <a href="report_notes.php" class="btn btn-info my-2">Informe</a> <!-- Este enlace nos llevara al php que mostrara el reporte completo de las notas -->
     </div>
     <div class="col-12 table-responsive">
         <table class="table table-bordered">
