@@ -27,10 +27,10 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	
 } 
 if(isset($_POST["updateChange"])){
-//getting year and section
+//Obteniendo año y sección
 $year = $_POST["year"];
 $sec = $_POST["sec"];
-		// FOR MONDAY	
+	// Lunes/Monday
 	$mday = $_POST["Mday1"];
 	$mper1 = $_POST["Mper1"]; 
 	$mper2 = $_POST["Mper2"]; 
@@ -39,7 +39,7 @@ $sec = $_POST["sec"];
 	$mper5 = $_POST["Mper5"]; 
 	$mper6 = $_POST["Mper6"]; 
 	$mper7 = $_POST["Mper7"]; 
-	// for tuesday
+	// Martes/Tuesday
 	$tday = $_POST["Tday1"];
 	$tper1 = $_POST["Tper1"]; 
 	$tper2 = $_POST["Tper2"]; 
@@ -49,7 +49,7 @@ $sec = $_POST["sec"];
 	$tper6 = $_POST["Tper6"]; 
 	$tper7 = $_POST["Tper7"]; 
 	
-	// for wednesday
+	// Miercoles/Wednesday
 	$wday = $_POST["Wday1"];
 	$wper1 = $_POST["Wper1"]; 
 	$wper2 = $_POST["Wper2"]; 
@@ -58,7 +58,7 @@ $sec = $_POST["sec"];
 	$wper5 = $_POST["Wper5"]; 
 	$wper6 = $_POST["Wper6"]; 
 	$wper7 = $_POST["Wper7"]; 
-	// FOR THURSDAY
+	// Jueves/Thursday
 	$thday = $_POST["THday1"];
 	$thper1 = $_POST["THper1"]; 
 	$thper2 = $_POST["THper2"]; 
@@ -67,7 +67,7 @@ $sec = $_POST["sec"];
 	$thper5 = $_POST["THper5"]; 
 	$thper6 = $_POST["THper6"]; 
 	$thper7 = $_POST["THper7"]; 
-	// FOR FRIDAY
+	// Viernes/Friday
 	$fday = $_POST["Fday1"];
 	$fper1 = $_POST["Fper1"]; 
 	$fper2 = $_POST["Fper2"]; 
@@ -76,7 +76,7 @@ $sec = $_POST["sec"];
 	$fper5 = $_POST["Fper5"]; 
 	$fper6 = $_POST["Fper6"]; 
 	$fper7 = $_POST["Fper7"]; 
-	// FOR SATURDAY
+	// Sábado/Saturday
 	$sday = $_POST["Sday1"];
 	$sper1 = $_POST["Sper1"]; 
 	$sper2 = $_POST["Sper2"]; 
@@ -87,19 +87,19 @@ $sec = $_POST["sec"];
 	$sper7 = $_POST["Sper7"]; 
 	
 	
-	// updating change
-	// for monday
+	// Realizando cambios
+	// Lunes
 	$monday = mysqli_query($connect, "UPDATE  timetable SET per1='$mper1',per2='$mper2',per3='$mper3',per4='$mper4',per5='$mper5',per6='$mper6' ,per7='$mper7' WHERE day='$mday' and year='$year' and sec='$sec' ");
 	
-	// for tuesday
+	//Martes
 $tuesday = mysqli_query($connect, "UPDATE  timetable SET per1='$tper1',per2='$tper2',per3='$tper3',per4='$tper4',per5='$tper5',per6='$tper6', per7='$tper7' WHERE day='$tday' and year='$year' and sec='$sec' ");
-// for wednesday
+//Miercoles
 $wednesday = mysqli_query($connect, "UPDATE  timetable SET per1='$wper1',per2='$wper2',per3='$wper3',per4='$wper4',per5='$wper5',per6='$wper6', per7='$wper7' WHERE day='$wday' and year='$year' and sec='$sec' ");
-// for thursday
+//Jueves
 $thursday = mysqli_query($connect, "UPDATE  timetable SET per1='$thper1',per2='$thper2',per3='$thper3',per4='$thper4',per5='$thper5',per6='$thper6', per7='$thper7' WHERE day='$thday' and year='$year' and sec='$sec' ");
-// for friday
+//Viernes
 $friday = mysqli_query($connect, "UPDATE  timetable SET per1='$fper1',per2='$fper2',per3='$fper3',per4='$fper4',per5='$fper5',per6='$fper6', per7='$fper7' WHERE day='$fday' and year='$year' and sec='$sec' ");
-// for saturday
+//Sábado
 $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$sper2',per3='$sper3',per4='$sper4',per5='$sper5',per6='$sper6', per7='$sper7' WHERE day='$sday' and year='$year' and sec='$sec' ");
 	
 	$msg = "<font color=\"green\">Success.</font>";
@@ -187,15 +187,15 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 
 	}
 	else{
-		// both values are passed so display form to edit
+		// Ambos valores validados, se despliega el form para editar
 		echo "
 		<form method='post' action='edit_timetable.php'>
 		<table class='table table-hover table-bordered' width='600px'>";
 		echo '				<tr>
 					<td class="danger">Day</td><td class="danger">Periodo-I</td><td class="danger">Periodo-II</td><td class="danger">Periodo-III</td><td class="danger">Period-IV</td><td class="danger">Periodo-V</td><td class="danger">Periodo-VI</td><td class="danger">Periodo-VII</td>
 				</tr>';
-			// for monday
-			// for first period
+			// Lunes
+			// Primer periodo
 		echo '				<tr>
 				<td class="info"><input type="text" name="Mday1" class="form-control" Readonly value="LUNES"/></td>
 				<td class="info">
@@ -213,7 +213,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
 		
-		// for second period
+		// Segundo periodo
 		echo '				
 				
 				<td class="info">
@@ -230,7 +230,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
+		// Tercer periodo
 		echo '				
 				
 				<td class="info">
@@ -247,7 +247,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
+//Cuarto periodo
 		echo '				
 				
 				<td class="info">
@@ -264,7 +264,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
+			// Quinto periodo
 		echo '				
 				
 				<td class="info">
@@ -281,7 +281,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
+		// Sexto periodo
 		echo '				
 				
 				<td class="info">
@@ -298,7 +298,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
+	//Séptimo periodo
 		echo '				
 				
 				<td class="info">
@@ -315,9 +315,8 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for monday
-		//FOR TUESDAY
-			// for first period
+		echo "</tr>"; //Final de lunes
+		//Martes
 		echo '				<tr>
 				<td class="info"><input type="text" name="Tday1" class="form-control" Readonly value="TUESDAY"/></td>
 				<td class="info">
@@ -335,7 +334,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
 		
-		// for second period
+	
 		echo '				
 				
 				<td class="info">
@@ -352,7 +351,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
+	
 		echo '				
 				
 				<td class="info">
@@ -369,7 +368,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
+
 		echo '				
 				
 				<td class="info">
@@ -386,7 +385,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
+		
 		echo '				
 				
 				<td class="info">
@@ -403,7 +402,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
+	
 		echo '				
 				
 				<td class="info">
@@ -420,7 +419,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
+	
 		echo '				
 				
 				<td class="info">
@@ -437,9 +436,9 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for TUESDAY
-	//FOR WEDNESDAY 
-			// for first period
+		echo "</tr>";
+	
+		
 		echo '				<tr>
 				<td class="info"><input type="text" name="Wday1" class="form-control" Readonly value="WEDNESDAY"/></td>
 				<td class="info">
@@ -457,7 +456,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
 		
-		// for second period
+		
 		echo '				
 				
 				<td class="info">
@@ -474,7 +473,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
+		
 		echo '				
 				
 				<td class="info">
@@ -491,7 +490,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
+
 		echo '				
 				
 				<td class="info">
@@ -508,7 +507,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
+		
 		echo '				
 				
 				<td class="info">
@@ -525,7 +524,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
+	
 		echo '				
 				
 				<td class="info">
@@ -542,7 +541,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
+
 		echo '				
 				
 				<td class="info">
@@ -559,9 +558,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for WEDNESDAY
-			// for THURSDAY
-			// for first period
+		echo "</tr>"; 
 		echo '				<tr>
 				<td class="info"><input type="text" name="THday1" class="form-control" Readonly value="THURSDAY"/></td>
 				<td class="info">
@@ -578,8 +575,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		
-		// for second period
 		echo '				
 				
 				<td class="info">
@@ -596,7 +591,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
 		echo '				
 				
 				<td class="info">
@@ -613,7 +607,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
 		echo '				
 				
 				<td class="info">
@@ -630,7 +623,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
 		echo '				
 				
 				<td class="info">
@@ -647,7 +639,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
 		echo '				
 				
 				<td class="info">
@@ -664,7 +655,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
 		echo '				
 				
 				<td class="info">
@@ -681,9 +671,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for THURSDAY
-			// for FRIDAY
-			// for first period
+		echo "</tr>"; 
 		echo '				<tr>
 				<td class="info"><input type="text" name="Fday1" class="form-control" Readonly value="FRIDAY"/></td>
 				<td class="info">
@@ -700,8 +688,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		
-		// for second period
 		echo '				
 				
 				<td class="info">
@@ -718,7 +704,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
 		echo '				
 				
 				<td class="info">
@@ -735,7 +720,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
 		echo '				
 				
 				<td class="info">
@@ -752,7 +736,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
 		echo '				
 				
 				<td class="info">
@@ -769,7 +752,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
 		echo '				
 				
 				<td class="info">
@@ -786,7 +768,6 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
 		echo '				
 				
 				<td class="info">
@@ -803,9 +784,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for FRIDAY
-			// for SATURDAY
-			// for first period
+		echo "</tr>";
 		echo '				<tr>
 				<td class="info"><input type="text" name="Sday1" class="form-control" Readonly value="SATURDAY"/></td>
 				<td class="info">
@@ -822,8 +801,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		
-		// for second period
+	
 		echo '				
 				
 				<td class="info">
@@ -840,7 +818,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// third period
+	
 		echo '				
 				
 				<td class="info">
@@ -857,7 +835,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-//fourth period
+
 		echo '				
 				
 				<td class="info">
@@ -874,7 +852,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-			// fifth period
+		
 		echo '				
 				
 				<td class="info">
@@ -891,7 +869,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		// sixth period
+		
 		echo '				
 				
 				<td class="info">
@@ -908,7 +886,7 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-	//seventh period
+
 		echo '				
 				
 				<td class="info">
@@ -925,14 +903,14 @@ $saturday = mysqli_query($connect, "UPDATE  timetable SET per1='$sper1',per2='$s
 					}
 			echo "<option value=\"---\">No Period </option>			</select>
 				</td>";
-		echo "</tr>"; //end for SATURDAY
+		echo "</tr>"; 
 		echo "<tr><input type='hidden' name='year' value='$year'/>
 		<input type='hidden' name='sec' value='$section'/><td class='info' colspan='8'><input type='submit' class='btn btn-success' name='updateChange' value='Actualizar cambio'/></td></tr>";
 				
 		echo "</table>";
 		echo "</form>";
 	
-	//end of else which indicates not null
+	
 	}
 	
 } ?>
