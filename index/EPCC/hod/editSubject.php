@@ -24,7 +24,7 @@ if((isset($_POST["sname"])) && (isset($_POST["year"]))  ){
 	}
 	else{
 	$uppername = strtoupper($sname);
-	//new registration of the subject
+	//Nuevo registro del curso
 	
 					$sql = mysqli_query($connect,"SELECT * FROM faculty where name='$uppername' ");
 					$count = mysqli_num_rows($sql);
@@ -41,7 +41,6 @@ if((isset($_POST["sname"])) && (isset($_POST["year"]))  ){
 </font>";
 				}
 	
-	//end of else which indicates not null
 	}
 	
 } 
