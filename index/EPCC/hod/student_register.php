@@ -25,7 +25,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 	}
 	else{
 	
-	//new registration to  1-1 
+	//nuevo registro para  1-1 
 	if($year == "I-I"){
 					$sql = mysqli_query($connect, "SELECT * FROM s1 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -40,7 +40,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-	//for transfer students
+	//para transferir estudiantes
 	else if($year == "I-II"){
 					$sql = mysqli_query($connect, "SELECT * FROM s2 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -56,7 +56,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-	//REGISTRATION FOR LATERAL ENTRY
+	//REGISTRO PARA ENTRADA LATERAL
 	else if($year == "II-I"){
 					$sql = mysqli_query($connect, "SELECT * FROM s3 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -71,7 +71,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-//TRANSFER STUDENTS II II
+//TRANSFERIR ESTUDIANTES II II
 	else if($year == "II-II"){
 					$sql = mysqli_query($connect, "SELECT * FROM s4 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -86,7 +86,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-	// III-I TRANSFER STUDENTS
+	// III-I TRANSFERIR ESTUDIANTES
 	else if($year == "III-I"){
 					$sql = mysqli_query($connect, "SELECT * FROM s5 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -102,7 +102,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 				}
 	}
 	
-	//FOR TRANSFER STUDENTS III -II 
+	//PARA TRANSFERIR ESTUDIANTES III -II 
 	else if($year == "III-II"){
 					$sql = mysqli_query($connect, "SELECT * FROM s6 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -117,7 +117,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-	//FOR 4 1
+	//PARA 4 1
 	else if($year == "IV-I"){
 					$sql = mysqli_query($connect, "SELECT * FROM s7 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -132,7 +132,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 					
 				}
 	}
-	//FOR FINAL SEMESTER
+	//PARA EL SEMESTRE FINAL
 	else if($year == "IV-II"){
 					$sql = mysqli_query($connect, "SELECT * FROM s8 where id='$id' ");
 					$count = mysqli_num_rows($sql);
@@ -150,7 +150,7 @@ if((isset($_POST["rid"])) && (isset($_POST["year"])) && (isset($_POST["section"]
 	}
 
 	
-	//end of else which indicates not null
+	//final del else que indica not null
 	}
 	
 } 
