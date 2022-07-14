@@ -81,7 +81,7 @@ include ("../include/connect.php");
 if(isset($_POST["sem"]) && isset($_POST["section"])){
 	$a = $_POST["sem"];
 	$section = $_POST["section"];
-	// for first year first semester attendance
+	// Para la asistencia del primer semestre del primer año.
 	if($a == "I-I"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s1 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -139,7 +139,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	// for first year second semester attendance
 	else if($a == "I-II"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s2 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -197,7 +196,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	// second year first semester attendance
 	else if($a == "II-I"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s3 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -254,7 +252,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	//second year second semester attendacne
 	else if($a == "II-II"){
 				$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s4 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -311,7 +308,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	//third year first semester attendance
 	else if($a == "III-I"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s5 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -368,7 +364,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	// third year second semester aattendance
 	else if($a == "III-II"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s6 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -424,7 +419,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	//fourth year first semester attendance
 	else if($a == "IV-I"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s7 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -481,7 +475,6 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 				
 				</table></form></div></div>";
 	}
-	//fourth year second semester attendance
 	else if($a == "IV-II"){
 		$sql = mysqli_query($connect, "SELECT id,sem,sec,sname FROM s8 WHERE sec = '$section'");
 		$count =  mysqli_num_rows($sql);
@@ -569,22 +562,22 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		$ides = $_POST["ids$i"];
 		$names = $_POST["nm$i"];
 
-		//first year attendance first semester
+		//Asistencia del primer año - primer semestre
 	 if($sem == "I-I"){
 		$check = mysqli_query($connect, "select id from a1 where(fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-		//retriving the period to check whether attendance for that period is inserted within a day or not
+		//Recuperando el periodo para confirmar si la asistencia para ese periodo fue insertanda un día o no
 		$checkSub = mysqli_query($connect, "select per from a1 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
+		//Confirmando (revisando) el periodo
 		if($pers == $count){
-			// attendance for that period is already inserted
+			// Mensaje - Ya insertado
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
+		//La asistencia para ese periodo no está, así que se inserta a la base de datos.
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a1` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -596,22 +589,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 // first year second semester attendance
 	 else if($sem == "I-II"){
 		$check = mysqli_query($connect, "select id from a2 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-		//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a2 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a2` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -623,22 +611,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 //second year first semester attendance
 	 else if($sem == "II-I"){
 		$check = mysqli_query($connect, "select id from a3 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-		//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a3 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a3` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -650,22 +633,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 // second year second semester attendance
 	 else if($sem == "II-II"){
 		$check = mysqli_query($connect, "select id from a4 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-		//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a4 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a4` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -677,22 +655,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 // third year first semester attendance
 	 else if($sem == "III-I"){
 		$check = mysqli_query($connect, "select id from a5 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-	//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a5 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a5` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -703,22 +676,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		}
 	 }
-	 // third year second semester attendance
 	 else if($sem == "III-II"){
 		$check = mysqli_query($connect, "select id from a6 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-	//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a6 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a6` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -730,22 +698,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 // fourth year first semester attendance
 	 else if($sem == "IV-I"){
 		$check = mysqli_query($connect, "select id from a7 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period') ");
 		$countCheck = mysqli_num_rows($check);
-//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a7 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a7` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
@@ -757,23 +720,17 @@ if(isset($_POST["sem"]) && isset($_POST["section"])){
 		}
 		
 	 }
-	 // fourth year second semenster attendance
 	 else if($sem == "IV-II"){
 		$check = mysqli_query($connect, "select id from a8 where (fac='$fac' and day='$date') and (sec = '$sec' and per = '$period')  ");
 		$countCheck = mysqli_num_rows($check);
-	
-		//retriving the period to check whether attendance for that period is inserted within a day or not
 		$checkSub = mysqli_query($connect, "select per from a8 where day='$date' and per = '$period' and sec='$sec' ");
 		$pers = mysqli_num_rows($checkSub);
-		//checking period
 		if($pers == $count){
-			// attendance for that period is already inserted
 					echo "<div align='center'><font color='red'><b>Lo siento, la asistencia para este período ya está insertada
 </b></font></div>";
 			break;
 		}
 		else{
-		//attendance for that period is not inserted so insert into the database
 		if($countCheck != $count){
 			$sql1 = mysqli_query($connect, "INSERT INTO `a8` (`id`, `sem`, `day`, `atten`, `fac`,`sec`,`per`,`sname`) VALUES ('$ides','$sem','$date','$res','$fac','$sec','$period','$names');");
 		}
