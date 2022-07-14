@@ -65,7 +65,7 @@ include ("../include/connect.php");
 		</select>
 					</td>
 				</tr>
-				<tr><td class="active" colspan="3"><input type="submit" class="btn btn-success" value="Get Sheet"/></td></tr>
+				<tr><td class="active" colspan="3"><input type="submit" class="btn btn-success" value="Obtener Registro"/></td></tr>
 
 			</tbody>			
 			</table>
