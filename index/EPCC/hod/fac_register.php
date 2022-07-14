@@ -22,12 +22,12 @@ if((isset($_POST["fname"])) && (isset($_POST["fid"])) &&(isset($_POST["pass"])) 
 	$userid = $_POST["fid"];
 	$deg =$_POST["desg"];
 	$password = $_POST["pass"];
-	//for faculty
+	//Para la facultad
 	if($deg ==1){
-	//retrive 
+	//Recuperar
  	
 	$sql = mysqli_query($connect, "select userId,fname from user where did='1' and fname='$fnames' ");
-	//retriving id to check
+	//Recuperando id para revisar
 	while($row = mysqli_fetch_array($sql)){
 			$ids = $row["userId"];
 			$name = $row["fname"];
@@ -37,7 +37,7 @@ if((isset($_POST["fname"])) && (isset($_POST["fid"])) &&(isset($_POST["pass"])) 
 		
 	 }else{
 	// echo "hi";
-		//not yet registered so register new faculty with new id and password
+		//Aún no registrado, con lo que se registra uno nuevo
 		$insert = mysqli_query($connect, "INSERT INTO user (userId,fname,password,did) VALUES ('$userid','$fnames','$password','1') ");
 		if($insert){
 			$msg = "<div align='center'> <font color='green'>Success</font></div>";
@@ -45,10 +45,10 @@ if((isset($_POST["fname"])) && (isset($_POST["fid"])) &&(isset($_POST["pass"])) 
 	}
 	}
 	else if($deg==3){
-	//retrive 
+	//Recuperando
  	
 	$sql = mysqli_query($connect, "select userId,fname from user where did='3' and fname='$fnames' ");
-	//retriving id to check
+	//Validando
 	while($row = mysqli_fetch_array($sql)){
 			$ids = $row["userId"];
 			$name = $row["fname"];
@@ -58,7 +58,7 @@ if((isset($_POST["fname"])) && (isset($_POST["fid"])) &&(isset($_POST["pass"])) 
 		
 	 }else{
 	// echo "hi";
-		//not yet registered so register new faculty with new id and password
+		//Aún no registrado
 		$insert = mysqli_query($connect, "INSERT INTO user (userId,fname,password,did) VALUES ('$userid','$fnames','$password','3') ");
 		if($insert){
 			$msg = "<div align='center'> <font color='green'>Success</font></div>";
@@ -111,7 +111,7 @@ if((isset($_POST["fname"])) && (isset($_POST["fid"])) &&(isset($_POST["pass"])) 
 					<td class="danger" colspan="3">Registrarse en la Facultad	</td>
 				</tr>
 				<tr>
-					<!-- Textbox for faculty signup -->
+					<!-- Sign up - Facultad -->
 					<td class="active"><input type="text" name="fid" class="form-control" placeholder="ID DE LA FACULTAD" />	</td>
 					<td class="active" colspan="2">	<input type="password" name="pass" class="form-control" placeholder="Crear contraseña" /></td>
 				</tr>
