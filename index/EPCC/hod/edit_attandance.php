@@ -122,7 +122,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 	$section = $_POST["section"];
 	$sub = $_POST["sub"];
 	$dat = $_POST["date"];
-	// for first year first semester attendance
+	// Para la asistencia del primer semestre de primer año
 	if($a == "I-I"){
 		$sql = mysqli_query($connect, "SELECT * FROM a1 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -139,14 +139,14 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				//Obteniendo fecha para editar la asistencia
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
+				//Obteniendo el nombre del curso para editar la asistencia
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				
-				//getting period and semister to edit the attendance
+				//Obteniendo el periodo y el semestre para editar la asistencia
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='I-I'/> 
@@ -165,7 +165,8 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+					
+						//Revisando si está presente
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -173,7 +174,8 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+					
+						//Obteniendo el valor del contador y sección para editar la asistencia
 						
 						echo "
 						
@@ -191,7 +193,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	// for editing 1-2 attendance
+	// 1-2
 	else if($a == "I-II"){
 		$sql = mysqli_query($connect, "SELECT * FROM a2 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -208,13 +210,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+			
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+		
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='I-II'/> 
@@ -232,7 +234,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+						
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -240,7 +242,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+						
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -257,7 +259,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	//for editing 2-1 attendance
+	// 2-1
 	else if($a == "II-I"){
 		$sql = mysqli_query($connect, "SELECT * FROM a3 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -274,13 +276,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+			
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+			
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='II-I'/> 
@@ -298,7 +300,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+					
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -306,7 +308,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+					
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -323,7 +325,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	//for editing 2-2 attendance
+	
 	else if($a == "II-II"){
 		$sql = mysqli_query($connect, "SELECT * FROM a4 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -340,13 +342,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+			
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='II-II'/> 
@@ -364,7 +366,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+						
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -372,7 +374,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+						
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -389,7 +391,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	//for edting 3-1 attendance
+	
 	else if($a == "III-I"){
 		$sql = mysqli_query($connect, "SELECT * FROM a5 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -406,13 +408,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+				
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='III-I'/> 
@@ -430,7 +432,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+					
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -438,7 +440,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+					
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -455,7 +457,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	// for editing 3-2 attendance
+	
 	else if($a == "III-II"){
 		$sql = mysqli_query($connect, "SELECT * FROM a6 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -472,13 +474,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+				
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='III-II'/> 
@@ -496,7 +498,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+						
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -504,7 +506,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+						
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -521,7 +523,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	// for editing 4-1 attendance
+	
 	else if($a == "IV-I"){
 		$sql = mysqli_query($connect, "SELECT * FROM a7 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -538,13 +540,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+				
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+				
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='IV-I'/> 
@@ -562,7 +564,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+						
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1' >";
@@ -570,7 +572,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else if($atten==0){
 							echo	"<input type='checkbox'  name='result$i' value='1' >";
 						}
-						//getting counter value and section for editing attendance
+					
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -587,7 +589,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 			echo "<div align='center'><b><font color='red'>El parámetro de selección no coincide</font></b></div>";
 		}
 	}
-	// for editing 4-2 attendance
+	
 	else if($a == "IV-II"){
 		$sql = mysqli_query($connect, "SELECT * FROM a8 WHERE sec = '$section' and per='$period' and fac= '$sub' and day = '$dat' ");
 		$count =  mysqli_num_rows($sql);
@@ -604,13 +606,13 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$subEdit = $row["fac"];
 					$period = $row["per"];
 				}
-				//get date to edit attendance for that date
+			
 				echo "
 				<input type='text' class='form-control' name='date' value='$dateEdit' readonly></td>";
-				//get subject name to edit attendance for that subject
+				
 			  	echo "
 				<td class='info'><input type='text' class='form-control' name='sub' value='$subEdit' readonly/>";
-				//getting period and semister to edit the attendance
+			
 				echo "
 				</td></tr></tbody></table>
 				<input type='hidden' name='year' value='IV-II'/> 
@@ -628,7 +630,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						<input type='text' readonly value='$nm' name='nm$i'>
 						<input type='text' readonly value='$id' name='ids$i'>
 						";
-						//checking whether persent or absent perviously
+					
 						if($atten==1){
 						
 						echo	"<input type='checkbox'  name='result$i'checked='checked' value='1'>";
@@ -636,7 +638,7 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 						else{
 							echo	"<input type='checkbox'  name='result$i' value='1'>";
 						}
-						//getting counter value and section for editing attendance
+						
 						echo "
 						&nbsp;
 					<input type='hidden' name='count' value='$count'/> 
@@ -669,7 +671,8 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 	$period="";
 	$date="";
 	do{
-		// checking and retriving the id posted by form2
+	
+		// Revisando y recuperando el id posteado en el form2
 		if( isset($_POST["ids$i"]) ){
 				$sem = $_POST["year"];
 				$sec = $_POST["sect$i"];
@@ -678,9 +681,9 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 				$nmup = $_POST["nm$i"];
 				$subject = $_POST["sub"];
 				$period = $_POST["period"];
-				// counter value
+				// Valor del contador
 				$count = $_POST["count"];
-				//checking for checkbox value 
+				// Valor del checkbox
 				if( ((isset($_POST["result$i"])) == null) || ((isset($_POST["result$i"])) == 0) ){
 					$res = 0;
 				}
@@ -688,35 +691,35 @@ if(isset($_POST["sem"]) && isset($_POST["section"]) && isset($_POST["sub"]) && i
 					$res = $_POST["result$i"];
 				}
 				
-			// update 1-1 attendance
+			// Actualizar Asistencia 1-1
 			if($sem == "I-I"){
 				$sql1 = mysqli_query($connect, "UPDATE `a1` SET  `atten`='$res' WHERE (id='$id' and sec = '$sec' and per='$period' and sname='$nmup') and (fac= '$subject' and day = '$date')");
 			}
-			// update 1-2 attendance
+			// 1-2 
 			else if($sem == "I-II"){
 				$sql1 = mysqli_query($connect, "UPDATE `a2` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			// update 2-1 attendance
+			// 2-1
 			else if($sem == "II-I"){
 				$sql1 = mysqli_query($connect, "UPDATE `a3` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			//update 2-2 attendance
+			// 2-2 
 			else if($sem == "II-II"){
 				$sql1 = mysqli_query($connect, "UPDATE `a4` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			//update 3-1 attendance
+			// 3-1 
 			else if($sem == "III-I"){
 				$sql1 = mysqli_query($connect, "UPDATE `a5` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			//update 3-2 attendance
+			// 3-2 
 			else if($sem == "III-II"){
 				$sql1 = mysqli_query($connect, "UPDATE `a6` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			//update 4-1 attendance
+			//4-1 
 			else if($sem == "IV-I"){
 				$sql1 = mysqli_query($connect, "UPDATE `a7` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
-			//update 4-2 attendance
+			//4-2 
 			else if($sem == "IV-II"){
 				$sql1 = mysqli_query($connect, "UPDATE `a8` SET  `atten`='$res' WHERE id='$id' and sec = '$sec' and per='$period' and sname='$nmup' and fac= '$subject' and day = '$date'");
 			}
