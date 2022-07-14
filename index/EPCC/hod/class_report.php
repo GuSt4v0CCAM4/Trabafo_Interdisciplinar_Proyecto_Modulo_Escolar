@@ -85,7 +85,7 @@ include ("../include/connect.php");
 					$sem = $_POST["sem"];
 					$section = $_POST["section"];
 					
-			// RETRIVING RESULT FOR I-I	
+			// Recuperando asistencia para I-I	
 			if($sem == "I-I"){
 				$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a1 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -101,20 +101,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a1` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							//Recuperando días presente
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						//Contando días ausencias
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a1` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							//Recuperando días ausencias
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						// a=días presente
 						$a = $total1;
-						// b means number of absent days
+						// b=días de ausencia
 						$b = $total2 ;
-						//CALCULATING total number of days
+						//Calculando dias totales
 						$total = $a+$b;
 
 						
@@ -132,7 +132,7 @@ include ("../include/connect.php");
 </font></b></div>";
 				}
 			}
-			//RETRIVING ATTENDANCE OF I-II 
+		
 			else if($sem == "I-II"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a2 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -149,20 +149,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a2` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a2` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
 							//retriving number of absent days 
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+					
 						$total = $a+$b;
 
 						
@@ -176,7 +176,7 @@ include ("../include/connect.php");
 					}
 			}
 		}
-			//RETRIVING ATTENDANCE OF II-I 
+
 			else if($sem == "II-I"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a3 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -192,20 +192,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a3` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+					
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a3` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+					
 						$total = $a+$b;
 
 						
@@ -219,7 +219,7 @@ include ("../include/connect.php");
 					}
 			}
 			}
-			//RETRIVING ATTENDANCE OF II-II 
+			
 			else if($sem == "II-II"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a4 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -235,20 +235,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a4` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+						
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a4` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+					
 						$a = $total1;
-						// b means number of absent days
+					
 						$b = $total2 ;
-						//CALCULATING total number of days
+						
 						$total = $a+$b;
 
 						
@@ -262,7 +262,7 @@ include ("../include/connect.php");
 					}
 			}
 			}
-			//RETRIVING ATTENDANCE OF III-I 
+	
 			else if($sem == "III-I"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a5 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -278,20 +278,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a5` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+						
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+					
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a5` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+					
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+					
 						$total = $a+$b;
 
 						
@@ -305,7 +305,7 @@ include ("../include/connect.php");
 					}
 			 }
 			}
-			//RETRIVING ATTENDANCE OF III-II 
+			
 			else if($sem == "III-II"){
 					$sql12 = mysqli_query($connect,"SELECT  distinct(per) as perd,fac,sec FROM a6 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -321,20 +321,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a6` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+							
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+					
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a6` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+						
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+					
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+						
 						$total = $a+$b;
 
 						
@@ -348,7 +348,7 @@ include ("../include/connect.php");
 					}
 			}
 			}
-			//RETRIVING ATTENDANCE OF IV-I 
+			
 			else if($sem == "IV-I"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a7 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -364,20 +364,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a7` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+						
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+					
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a7` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+							
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+						
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+					
 						$total = $a+$b;
 
 						
@@ -391,7 +391,7 @@ include ("../include/connect.php");
 					}
 			}
 			}
-			//RETRIVING ATTENDANCE OF IV-II 
+		
 			else if($sem == "IV-II"){
 					$sql12 = mysqli_query($connect, "SELECT  distinct(per) as perd,fac,sec FROM a8 WHERE day = '$date'  and sec = '$section' order by per asc ");
 				$count = mysqli_num_rows($sql12);
@@ -407,20 +407,20 @@ include ("../include/connect.php");
 						
 						$sql2 = mysqli_query($connect, "SELECT count(atten) AS ATTEN FROM `a8` WHERE `fac` = '$sub' and atten = '1' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql2)){
-							//retriving number of present days 
+						
 							$total1 = $rows["ATTEN"];
 						}
-						//counting the toal number of absent days
+					
 						$sql3 = mysqli_query($connect, "SELECT count(atten) AS LOSS FROM `a8` WHERE  `fac` = '$sub' and atten = '0' and per='$period' ");
 						while($rows = mysqli_fetch_array($sql3)){
-							//retriving number of absent days 
+						
 							$total2 = $rows["LOSS"];
 						}
-						// a means present number of days
+
 						$a = $total1;
-						// b means number of absent days
+						
 						$b = $total2 ;
-						//CALCULATING total number of days
+					
 						$total = $a+$b;
 
 						
