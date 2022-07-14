@@ -134,7 +134,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 			}
 		
 		echo '</table>';
-	// end of not null
+	// fin de no nulo (null)
 	}
 }?>
 		</div>
