@@ -98,7 +98,7 @@ if((isset($_POST["year"]))  ){
 	}
 	else{
 	
-	//view i i details 
+	//ver 1-1 detalles
 	if($year == "I-I"){
 		echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Seccion</th><th class='danger'>Estado detenido</th>
@@ -120,7 +120,7 @@ if((isset($_POST["year"]))  ){
 			echo "</table>";
 
 	}
-	// for 1-2 
+	// para 1-2 
 	else if($year == "I-II"){
 		echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -142,7 +142,7 @@ if((isset($_POST["year"]))  ){
 			echo "</table>";
 
 	}
-	//for 2 1
+	//para 2-1
 	else if($year == "II-I"){
 		echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -164,7 +164,7 @@ if((isset($_POST["year"]))  ){
 			echo "</table>";
 
 	}
-	// 2 -2
+	// para 2-2
 	else if($year == "II-II"){
 echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -186,7 +186,7 @@ echo "<table class='table table-bordered table-hover'>
 			echo "</table>";
 
 	}
-	//3 -1
+	// para 3-1
 	else if($year == "III-I"){
 	echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -208,7 +208,7 @@ echo "<table class='table table-bordered table-hover'>
 			echo "</table>";
 
 	}
-	//3-2
+	// para 3-2
 	else if($year == "III-II"){
 echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -230,7 +230,7 @@ echo "<table class='table table-bordered table-hover'>
 			echo "</table>";
 
 	}
-	// 4 - 1
+	// para 4-1
 	else if($year == "IV-I"){
 	echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -252,7 +252,7 @@ echo "<table class='table table-bordered table-hover'>
 			echo "</table>";
 
 	}
-	// 4- 2
+	// para 4-2
 	else if($year == "IV-II"){
 echo "<table class='table table-bordered table-hover'>
 			<th class='danger'>ID registrado</th><th class='danger'>Nombre</th><th class='danger'>Año</th><th class='danger'>Sección</th><th class='danger'>Estado detenido</th>
@@ -275,7 +275,7 @@ echo "<table class='table table-bordered table-hover'>
 
 	}
 	
-	//end of else indicating not null
+	//fin del else indicando not null
  }
 	
 } 
