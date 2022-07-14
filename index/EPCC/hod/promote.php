@@ -18,7 +18,7 @@ $msg ="";
 if((isset($_POST["from"])) && (isset($_POST["to"]))){
 	$from = $_POST["from"];
 	$to = $_POST["to"];
-	//upgrade form 1-1 to 1-2
+	//Actualizar form 1-1 1-2
 	if($from == "i-i" && $to =="i-ii"){
 					$sql = mysqli_query($connect, "SELECT * FROM s1 where detained != '1' ");
 				if($sql){
@@ -39,7 +39,7 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Lo siento no puede ser promovido</font>";
 				}
 	}
-	//upgrade form 1-2 to 2-1
+	//1-2 2-1
 	else if($from == "i-ii" && $to =="ii-i"){
 					$sql = mysqli_query($connect, "SELECT * FROM s2 where detained != '1' ");
 				if($sql){
@@ -60,7 +60,7 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Lo siento no puede ser promovido</font>";
 				}
 	}
-	//upgrade form 2-1 to 2-2
+	//2-1 2-2
 	else if($from == "ii-i" && $to =="ii-ii"){
 					$sql = mysqli_query($connect, "SELECT * FROM s3 where detained != '1' ");
 				if($sql){
@@ -81,7 +81,7 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Lo siento no puede ser promovido</font>";
 				}
 	}
-	//upgrade form 2-2 to 3-1
+	//2-2 3-1
 	else if($from == "ii-ii" && $to =="iii-i"){
 					$sql = mysqli_query($connect, "SELECT * FROM s4 where detained != '1' ");
 				if($sql){
@@ -102,7 +102,7 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Sorry can't be promoted</font>";
 				}
 	}
-	//upgrade form 3-1 to 3-2
+	//3-1 3-2
 	else if($from == "iii-i" && $to =="iii-ii"){
 					$sql = mysqli_query($connect, "SELECT * FROM s5 where detained != '1' ");
 				if($sql){
@@ -123,7 +123,6 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Sorry can't be promoted</font>";
 				}
 	}
-	//upgrade form 3-2 to 4-1
 	else if($from == "iii-ii" && $to =="iv-i"){
 					$sql = mysqli_query($connect, "SELECT * FROM s6 where detained != '1' ");
 				if($sql){
@@ -144,7 +143,6 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 					$msg = "<font color=\"red\">Sorry can't be promoted</font>";
 				}
 	}
-	//upgrade form 4-1 to 4-2 
 	else if($from == "iv-i" && $to =="iv-ii"){
 					$sql = mysqli_query($connect, "SELECT * FROM s7 where detained != '1' ");
 				if($sql){
@@ -172,7 +170,7 @@ if((isset($_POST["from"])) && (isset($_POST["to"]))){
 ?>
 <?php
 $msg1="";
-//Clearing the records of passout students
+//Eliminando las notas de los estudiantes grauados
 if(isset($_POST["clearAll"])){
 				$drop=mysqli_query($connect, "DELETE FROM `s8` WHERE `detained` !='1'");
 				if($drop){
