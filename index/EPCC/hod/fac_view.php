@@ -40,7 +40,7 @@ include ("../include/connect.php");
 				<?php
 					
 				//	echo  $yrs;
-				//view the promoted list
+				//Ver lista de aprobados
 					
 						$sts = mysqli_query($connect, "SELECT * FROM user where did='1'");
 						while($row=mysqli_fetch_array($sts)){
