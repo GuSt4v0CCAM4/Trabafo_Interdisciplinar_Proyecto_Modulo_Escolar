@@ -21,7 +21,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 	$subs = $_POST["subject"];
 	$sec = $_POST["sec"];
 	$sem = $_POST["sem"];
-	//CHECKING FOR THE NULL VALUES 
+	//COMPROBACIÓN PARA LOS VALORES NULOS 
 	if( ($name == "") || ($subs=="") || ($sec=="") || ($sem=="") ){
 		$msg = "<div align='center'><font color='red'>Seleccione todas las opciones apropiadamente</font></div>";
 	}else{
@@ -29,13 +29,13 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 		//$check = mysql_query("SELECT * FROM `facsub` WHERE `name`='$name' and `sub` ='$sub' and `sem`='$sem' and `sec`='$sec'");
 		$sql = mysqli_query($connect, "SELECT * FROM facsub WHERE names='$name' and subjects='$subs' and sem = '$sem' and sec = '$sec'");
 		$count = mysqli_num_rows($sql);
-		//CHECKING WHETHER SUBJECT ALREADY REGISTERED OR NOT
+		//COMPROBAR SI EL ESTUDIANTE YA ESTÁ INSCRITO O NO
 		if($count){
-			//SUCCESS MEANS REGISTERED SO DISPLAY THE SAME MESSAGE
+			//LOGRADO SIGNIFICA REGISTRADO POR LO CUAL DESPLIEGA EL MISMO MENSAJE
 			$msg = "<div align='center'><font color='red'>Sujeto ya asignado.<a href='edit_alloc.php'>Haga clic aquí para editar</a></font></div>";
 		}
 		else{
-		//NOT YET REGISTERED SO ALLOCATE THE SUBJECT TO THE FACULTY
+		//AÚN NO REGISTRADO POR LO CUAL ASIGNAR EL ESTUDIANTE A LA FACULTAD
 			$insert = mysqli_query($connect, "INSERT INTO facsub (names,subjects,sem,sec) VALUES ('$name','$subs','$sem','$sec')");
 			if($insert){
 				$msg = "<div align='center'><font color='green'>Asignado con éxito</font></div>";
@@ -76,11 +76,11 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 						<select name="fname" class="form-control" />
 							<option value=""> Nombre de la facultad</option>
 							<?php 
-							//retriving name of faculty to display in select option
+							//recuperando el nombre de la facultad para mostrar en la opción de selección
 								$sql=mysqli_query($connect, "select distinct(fname) as fname from user");
 								while($row = mysqli_fetch_array($sql)){
 									$faculty = $row["fname"];
-									// displaying as option 
+									// mostrar como una opción 
 									echo "<option value='$faculty'>$faculty</option>";
 								}
 							?>
@@ -91,7 +91,7 @@ if((isset($_POST["fname"])) && (isset($_POST["subject"])) &&(isset($_POST["sem"]
 							<option value="">Nombre del tema</option>
 					<?php
 						
-							//retriving the name of the subject from the database to display in the  select option
+							//mostrar y recuperar el nombre del estudiante de la base de datos para mostrar en las opciones de selección
 						$ans = mysqli_query($connect, "SELECT distinct(`name`) FROM `faculty`  ORDER BY `name`");
 						while($row = mysqli_fetch_array($ans)){
 							$fname = $row["name"];
