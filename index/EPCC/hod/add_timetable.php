@@ -24,7 +24,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 
 	}
 	else{
-	// FOR MONDAY	
+	// Lunes/Monday
 	$mday = $_POST["Mday1"];
 	$mper1 = $_POST["Mper1"]; 
 	$mper2 = $_POST["Mper2"]; 
@@ -33,7 +33,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$mper5 = $_POST["Mper5"]; 
 	$mper6 = $_POST["Mper6"]; 
 	$mper7 = $_POST["Mper7"]; 
-	// for tuesday
+	// Martes/Tuesday
 	$tday = $_POST["Tday1"];
 	$tper1 = $_POST["Tper1"]; 
 	$tper2 = $_POST["Tper2"]; 
@@ -43,7 +43,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$tper6 = $_POST["Tper6"]; 
 	$tper7 = $_POST["Tper7"]; 
 	
-	// for wednesday
+	// Miercoles/Wednesday
 	$wday = $_POST["Wday1"];
 	$wper1 = $_POST["Wper1"]; 
 	$wper2 = $_POST["Wper2"]; 
@@ -52,7 +52,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$wper5 = $_POST["Wper5"]; 
 	$wper6 = $_POST["Wper6"]; 
 	$wper7 = $_POST["Wper7"]; 
-	// FOR THURSDAY
+	// Jueves/Thursday
 	$thday = $_POST["THday1"];
 	$thper1 = $_POST["THper1"]; 
 	$thper2 = $_POST["THper2"]; 
@@ -61,7 +61,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$thper5 = $_POST["THper5"]; 
 	$thper6 = $_POST["THper6"]; 
 	$thper7 = $_POST["THper7"]; 
-	// FOR FRIDAY
+	// Viernes/Friday
 	$fday = $_POST["Fday1"];
 	$fper1 = $_POST["Fper1"]; 
 	$fper2 = $_POST["Fper2"]; 
@@ -70,7 +70,7 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$fper5 = $_POST["Fper5"]; 
 	$fper6 = $_POST["Fper6"]; 
 	$fper7 = $_POST["Fper7"]; 
-	// FOR SATURDAY
+	// Sábado/Saturday
 	$sday = $_POST["Sday1"];
 	$sper1 = $_POST["Sper1"]; 
 	$sper2 = $_POST["Sper2"]; 
@@ -80,34 +80,31 @@ if( (isset($_POST["year"])) && (isset($_POST["section"]))  ){
 	$sper6 = $_POST["Sper6"]; 
 	$sper7 = $_POST["Sper7"]; 
 	
-	// checking whether already registered or not
+	// Revisando si está ya registrado o no.
 	$check = mysqli_query($connect, "select * from timetable where year='$year' AND sec='$section'");
 	$count = mysqli_num_rows($check);
 	if(!$count){
-	//means not added so add now	
-	// NOW INSERTING INTO THE DATABASE 
-	// for monday
+	//Si no está añadido, se añade ahora
+	// Insertando a la base de datos 
+	// Lunes
 	$monday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$mday','$mper1','$mper2','$mper3','$mper4','$mper5','$mper6','$mper7','$year','$section')");
-	// for tuesday
+	// Martes
 $tuesday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$tday','$tper1','$tper2','$tper3','$tper4','$tper5','$tper6','$tper7','$year','$section')");
-// for wednesday
+// Miercoles
 $wednesday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$wday','$wper1','$wper2','$wper3','$wper4','$wper5','$wper6','$wper7','$year','$section')");
-// for thursday
+// Jueves
 $thursday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$thday','$thper1','$thper2','$thper3','$thper4','$thper5','$thper6','$thper7','$year','$section')");
-// for friday
+// Viernes
 $friday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$fday','$fper1','$fper2','$fper3','$fper4','$fper5','$fper6','$fper7','$year','$section')");
-// for saturday
+// Sábado
 $saturday = mysqli_query($connect, "INSERT INTO timetable (day,per1,per2,per3,per4,per5,per6,per7,year,sec) VALUES ('$sday','$sper1','$sper2','$sper3','$sper4','$sper5','$sper6','$sper7','$year','$section')");
 	
 	$msg = "<font color=\"green\">Success.</font>";
 }
 else{
-	// dispaly error message
+	// Mensaje de error
 		$msg = "<font color=\"red\">Sorry! the time table is already added.</font>";
 }
-
-	
-	//end of else which indicates not null
 	}
 	
 } 
@@ -171,7 +168,7 @@ else{
 				<tr>
 					<td class="danger">Dia</td><td class="danger">Periodo-I</td><td class="danger">Periodo-II</td><td class="danger">Periodo-III</td><td class="danger">Periodo-IV</td><td class="danger">Periodo-V</td><td class="danger">Periodo-VI</td><td class="danger">Periodo-VII</td>
 				</tr>
-				<!-- for selecting subject and day  FOR MONDAY-->
+				<!-- Para seleccionar curso y día - Lunes-->
 				<tr>
 				<td class="info"><input type="text" name="Mday1" class="form-control" Readonly value="MONDAY"/></td>
 				<td class="info">
@@ -187,7 +184,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
+				<!-- periodo 2 -->
 				<td class="info">
 				<select name="Mper2" class="form-control">
 				<option value="---">No Periodo </option>
@@ -201,7 +198,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 3 -->
+				<!-- periodo 3 -->
 				<td class="info">
 				<select name="Mper3" class="form-control">
 				<option value="---">No Periodo </option>
@@ -215,7 +212,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
+				<!-- periodo 4 -->
 				<td class="info">
 				<select name="Mper4" class="form-control">
 				<option value="---">No Period </option>
@@ -229,7 +226,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+				<!-- periodo 5 -->
 				<td class="info">
 				<select name="Mper5" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -243,7 +240,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
+				<!-- periodo 6 -->
 				<td class="info">
 				<select name="Mper6" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -257,7 +254,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
+				<!-- periodo 7 -->
 				<td class="info">
 				<select name="Mper7" class="form-control"><option value="---">Sin Periodo </option>
 					<?php				
@@ -271,7 +268,7 @@ else{
 				</select>
 				</td>
 				</tr>
-				<!-- tuesday -->
+				<!-- Martes -->
 	<tr>
 				<td class="info"><input type="text" name="Tday1" class="form-control" Readonly value="TUESDAY"/></td>
 				<td class="info">
@@ -286,7 +283,6 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
 				<td class="info">
 				<select name="Tper2" class="form-control"><option value="---">Sin Periodo</option>
 					<?php				
@@ -313,7 +309,6 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
 				<td class="info">
 				<select name="Tper4" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -327,7 +322,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+
 				<td class="info">
 				<select name="Tper5" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -341,7 +336,6 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
 				<td class="info">
 				<select name="Tper6" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -355,7 +349,6 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
 				<td class="info">
 				<select name="Tper7" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -370,7 +363,7 @@ else{
 				</select>
 				</td>
 				</tr>
-			<!-- wednesday-->
+			<!-- Miercoles-->
 	<tr>
 				<td class="info"><input type="text" name="Wday1" class="form-control" Readonly value="WEDNESDAY"/></td>
 				<td class="info">
@@ -386,7 +379,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
+				
 				<td class="info">
 				<select name="Wper2" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -400,7 +393,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 3 -->
+				
 				<td class="info">
 				<select name="Wper3" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -414,7 +407,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
+			
 				<td class="info">
 				<select name="Wper4" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -428,7 +421,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+				
 				<td class="info">
 				<select name="Wper5" class="form-control">
 				<option value="---">Sin Periodo </option>
@@ -442,7 +435,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
+				
 				<td class="info">
 				<select name="Wper6" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -456,7 +449,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
+				
 				<td class="info">
 				<select name="Wper7" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -471,7 +464,7 @@ else{
 				</select>
 				</td>
 				</tr>
-			<!-- thursday -->
+			<!-- Jueves -->
 	<tr>
 				<td class="info"><input type="text" name="THday1" class="form-control" Readonly value="THURSDAY"/></td>
 				<td class="info">
@@ -487,7 +480,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
+	
 				<td class="info">
 				<select name="THper2" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -501,7 +494,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 3 -->
+		
 				<td class="info">
 				<select name="THper3" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -515,7 +508,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
+		
 				<td class="info">
 				<select name="THper4" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -529,7 +522,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+			
 				<td class="info">
 				<select name="THper5" class="form-control">
 				<option value="---">Sin Periodo</option>
@@ -543,7 +536,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
+				
 				<td class="info">
 				<select name="THper6" class="form-control">
 				<option value="---">Sin Periodo
@@ -558,7 +551,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
+			
 				<td class="info">
 				<select name="THper7" class="form-control">
 				<option value="---">Sin Periodo
@@ -574,7 +567,7 @@ else{
 				</select>
 				</td>
 				</tr>
-			<!-- friday-->
+			<!-- Viernes-->
 	<tr>
 				<td class="info"><input type="text" name="Fday1" class="form-control" Readonly value="FRIDAY"/></td>
 				<td class="info">
@@ -591,7 +584,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
+			
 				<td class="info">
 				<select name="Fper2" class="form-control">
 				<option value="---">Sin Periodo
@@ -606,7 +599,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 3 -->
+				
 				<td class="info">
 				<select name="Fper3" class="form-control">
 				<option value="---">Sin Periodo
@@ -621,7 +614,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
+			
 				<td class="info">
 				<select name="Fper4" class="form-control">
 				<option value="---">Sin Periodo
@@ -636,7 +629,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+				
 				<td class="info">
 				<select name="Fper5" class="form-control">
 				<option value="---">Sin Periodo
@@ -651,7 +644,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
+			
 				<td class="info">
 				<select name="Fper6" class="form-control">
 				<option value="---">Sin Periodo
@@ -666,7 +659,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
+			
 				<td class="info">
 				<select name="Fper7" class="form-control">
 				<option value="---">Sin Periodo
@@ -682,7 +675,7 @@ else{
 				</select>
 				</td>
 				</tr>
-			<!-- saturday -->
+			<!-- Sábado -->
 				<tr>
 				<td class="info"><input type="text" name="Sday1" class="form-control" Readonly value="SATURDAY"/></td>
 				<td class="info">
@@ -699,7 +692,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 2 -->
+			
 				<td class="info">
 				<select name="Sper2" class="form-control">
 				<option value="---">Sin Periodo
@@ -714,7 +707,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 3 -->
+				
 				<td class="info">
 				<select name="Sper3" class="form-control">
 				<option value="---">Sin Periodo
@@ -729,7 +722,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 4 -->
+			
 				<td class="info">
 				<select name="Sper4" class="form-control">
 				<option value="---">Sin Periodo
@@ -744,7 +737,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 5 -->
+			
 				<td class="info">
 				<select name="Sper5" class="form-control">
 				<option value="---">Sin Periodo
@@ -759,7 +752,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 6 -->
+			
 				<td class="info">
 				<select name="Sper6" class="form-control">
 				<option value="---">Sin Periodo
@@ -774,7 +767,7 @@ else{
 				?>
 				</select>
 				</td>
-				<!-- period 7 -->
+				
 				<td class="info">
 				<select name="Sper7" class="form-control">
 				<option value="---">Sin Periodo
