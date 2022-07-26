@@ -8,7 +8,7 @@ if(isset($_SESSION["did"])){
    	$vid = $_SESSION["did"];
 
 		 if($vid==1){
-			//go to faculty page
+			//Ir a la pagina de la facultad
 			header("location:faculty/index.php");
 		}
 		else if($vid==2){
@@ -28,7 +28,7 @@ if(isset($_POST["lid"]) && isset($_POST["lpwd"]) && isset($_POST["design"])){
 	$login_design = preg_replace('#[^0-9]#i', '', $_POST["design"]); // Filtrando todo excepto letras
 	// echo $login_id,$login_pwd,$login_design;
 	//Confirmando con la base de datos
-	 $sql = mysqli_query($connect, "SELECT * FROM user  WHERE userId='$login_id' AND password='$login_pwd' AND did='$login_design' LIMIT 1"); // query the person
+	 $sql = mysqli_query($connect, "SELECT * FROM user  WHERE userId='$login_id' AND password='$login_pwd' AND did='$login_design' LIMIT 1"); // Consultamos la persona
       
     if ($sql) { //Evaluando la cuenta
 	     while($row = mysqli_fetch_array($sql)){ 
